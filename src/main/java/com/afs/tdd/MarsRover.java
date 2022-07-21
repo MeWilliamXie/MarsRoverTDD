@@ -19,17 +19,21 @@ public class MarsRover {
     }
 
     public void executeCommand(String command) {
-        switch (command) {
-            case "M":
-                this.move();
-                break;
-            case "L":
-                this.turnLeft();
-                break;
-            case "R":
-                this.turnRight();
-                break;
+        char[] commandList = command.toCharArray();
+        for (char theCommand : commandList) {
+            switch (theCommand) {
+                case 'M':
+                    this.move();
+                    break;
+                case 'L':
+                    this.turnLeft();
+                    break;
+                case 'R':
+                    this.turnRight();
+                    break;
+            }
         }
+
     }
 
     private void move() {
@@ -66,12 +70,12 @@ public class MarsRover {
         return directionList.get(this.directionIndex);
     }
 
-//    public int getxLocation() {
-//        return xLocation;
-//    }
-//
-//    public int getyLocation() {
-//        return yLocation;
-//    }
+    public int getxLocation() {
+        return xLocation;
+    }
+
+    public int getyLocation() {
+        return yLocation;
+    }
 
 }
