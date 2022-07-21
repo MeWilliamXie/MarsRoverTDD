@@ -54,23 +54,24 @@ public class MarsRover {
     }
 
     private void turnRight() {
-        this.directionIndex = this.directionIndex + 1 >= 0 ? this.directionIndex - 1 : 3;
+        this.directionIndex = this.directionIndex + 1 <= 3 ? this.directionIndex + 1 : 0;
     }
 
 
     public String getLocation() {
-        return String.format(locationFormat, this.xLocation, this.yLocation, directionList.get(this.directionIndex));
+        return String.format(locationFormat, this.xLocation, this.yLocation, this.getDirection());
     }
 
-    public int getxLocation() {
-        return xLocation;
+    public String getDirection() {
+        return directionList.get(this.directionIndex);
     }
 
-    public int getyLocation() {
-        return yLocation;
-    }
+//    public int getxLocation() {
+//        return xLocation;
+//    }
+//
+//    public int getyLocation() {
+//        return yLocation;
+//    }
 
-    public int getDirectionIndex() {
-        return directionIndex;
-    }
 }

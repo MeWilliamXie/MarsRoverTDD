@@ -40,4 +40,112 @@ class MarsRoverTest {
         // then
         assertEquals("location: (x: 0, y: 0), direction: E", marsRover.getLocation());
     }
+
+    @Test
+    void should_get_to_0_negative1_S_when_execute_command_M_given_0_0_S() {
+        // given
+        MarsRover marsRover = new MarsRover(0,0,"S");
+
+        // when
+        marsRover.executeCommand("M");
+
+        // then
+        assertEquals("location: (x: 0, y: -1), direction: S", marsRover.getLocation());
+    }
+
+    @Test
+    void should_get_to_0_0_E_when_execute_command_L_given_0_0_S() {
+        // given
+        MarsRover marsRover = new MarsRover(0,0,"S");
+
+        // when
+        marsRover.executeCommand("L");
+
+        // then
+        assertEquals("location: (x: 0, y: 0), direction: E", marsRover.getLocation());
+    }
+
+    @Test
+    void should_get_to_0_0_W_when_execute_command_R_given_0_0_S() {
+        // given
+        MarsRover marsRover = new MarsRover(0,0,"S");
+
+        // when
+        marsRover.executeCommand("R");
+
+        // then
+        assertEquals("location: (x: 0, y: 0), direction: W", marsRover.getLocation());
+    }
+
+    @Test
+    void should_get_to_1_0_E_when_execute_command_M_given_0_0_E() {
+        // given
+        MarsRover marsRover = new MarsRover(0,0,"E");
+
+        // when
+        marsRover.executeCommand("M");
+
+        // then
+        assertEquals("location: (x: 1, y: 0), direction: E", marsRover.getLocation());
+    }
+
+    @Test
+    void should_get_to_0_0_N_when_execute_command_L_given_0_0_E() {
+        // given
+        MarsRover marsRover = new MarsRover(0,0,"E");
+
+        // when
+        marsRover.executeCommand("L");
+
+        // then
+        assertEquals("location: (x: 0, y: 0), direction: N", marsRover.getLocation());
+    }
+
+    @Test
+    void should_get_to_0_0_S_when_execute_command_R_given_0_0_E() {
+        // given
+        MarsRover marsRover = new MarsRover(0,0,"E");
+
+        // when
+        marsRover.executeCommand("R");
+
+        // then
+        assertEquals("location: (x: 0, y: 0), direction: S", marsRover.getLocation());
+    }
+
+    @Test
+    void should_get_to_negative1_0_W_when_execute_command_M_given_0_0_W() {
+        // given
+        MarsRover marsRover = new MarsRover(0,0,"W");
+
+        // when
+        marsRover.executeCommand("M");
+
+        // then
+        assertEquals("location: (x: -1, y: 0), direction: W", marsRover.getLocation());
+    }
+
+    @Test
+    void should_get_to_0_0_S_when_execute_command_L_given_0_0_W() {
+        // given
+        MarsRover marsRover = new MarsRover(0,0,"W");
+
+        // when
+        marsRover.executeCommand("L");
+
+        // then
+        assertEquals("location: (x: 0, y: 0), direction: S", marsRover.getLocation());
+    }
+
+    @Test
+    void should_get_to_0_0_N_when_execute_command_R_given_0_0_W() {
+        // given
+        MarsRover marsRover = new MarsRover(0,0,"W");
+
+        // when
+        marsRover.executeCommand("R");
+
+        // then
+        assertEquals("location: (x: 0, y: 0), direction: N", marsRover.getLocation());
+    }
 }
