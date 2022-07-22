@@ -7,11 +7,11 @@ public class Direction {
     private static final List<String> directionList = Arrays.asList("N", "E", "S", "W");
     private int directionIndex;
 
-    Direction(String direction){
+    Direction(String direction) {
         this.directionIndex = directionList.indexOf(direction);
     }
 
-    public String getDirection() {
+    public String getDisplay() {
         return directionList.get(this.directionIndex);
     }
 

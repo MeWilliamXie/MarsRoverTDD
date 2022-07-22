@@ -6,13 +6,13 @@ import java.util.List;
 
 public class MarsRover {
 
-    private int xLocation;
-    private int yLocation;
+    //    private int xLocation;
+//    private int yLocation;
+    private final Location location;
     private final Direction direction;
 
     public MarsRover(int xLocation, int yLocation, String direction) {
-        this.xLocation = xLocation;
-        this.yLocation = yLocation;
+        this.location = new Location(xLocation, yLocation);
         this.direction = new Direction(direction);
     }
 
@@ -21,7 +21,7 @@ public class MarsRover {
         for (char theCommand : commandList) {
             switch (theCommand) {
                 case 'M':
-                    this.move();
+                    this.location.move(this.direction);
                     break;
                 case 'L':
                     this.direction.turnLeft();
@@ -34,33 +34,16 @@ public class MarsRover {
 
     }
 
-    private void move() {
-        switch (this.direction.getDirection()) {
-            case "N":
-                this.yLocation++;
-                break;
-            case "E":
-                this.xLocation++;
-                break;
-            case "S":
-                this.yLocation--;
-                break;
-            case "W":
-                this.xLocation--;
-                break;
-        }
-    }
-
     public String getDirection() {
-        return this.direction.getDirection();
+        return this.direction.getDisplay();
     }
 
-    public int getxLocation() {
-        return xLocation;
+    public int getXLocation() {
+        return this.location.getXLocation();
     }
 
-    public int getyLocation() {
-        return yLocation;
+    public int getYLocation() {
+        return this.location.getYLocation();
     }
 
 }
