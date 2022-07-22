@@ -70,7 +70,6 @@ class MarsRoverTest {
         marsRover.executeCommand("L");
 
         // then
-        assertEquals("location: (x: 0, y: 0), direction: E", marsRover.getLocation());
         assertEquals(0, marsRover.getxLocation());
         assertEquals(0, marsRover.getyLocation());
         assertEquals("E", marsRover.getDirection());
@@ -99,7 +98,6 @@ class MarsRoverTest {
         marsRover.executeCommand("M");
 
         // then
-        assertEquals("location: (x: 1, y: 0), direction: E", marsRover.getLocation());
         assertEquals(1, marsRover.getxLocation());
         assertEquals(0, marsRover.getyLocation());
         assertEquals("E", marsRover.getDirection());
@@ -176,7 +174,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_get_to_negative2_0_N_when_execute_command_MMR_given_0_0_W() {
+    void should_get_to_negative3_2_W_when_execute_command_MMR_given_0_0_W() {
         // given
         MarsRover marsRover = new MarsRover(0, 0, "W");
 

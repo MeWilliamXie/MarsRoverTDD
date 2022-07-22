@@ -5,17 +5,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MarsRover {
-    private static final String locationFormat = "location: (x: %d, y: %d), direction: %s";
-    private static final List<String> directionList = Arrays.asList("N", "E", "S", "W");
 
     private int xLocation;
     private int yLocation;
-    private int directionIndex;
+    private final Direction direction;
 
-    public MarsRover(int xLocation, int yLocation, String dirction) {
+    public MarsRover(int xLocation, int yLocation, String direction) {
         this.xLocation = xLocation;
         this.yLocation = yLocation;
-        this.directionIndex = directionList.indexOf(dirction);
+        this.direction = new Direction(direction);
     }
 
     public void executeCommand(String command) {
@@ -26,10 +24,10 @@ public class MarsRover {
                     this.move();
                     break;
                 case 'L':
-                    this.turnLeft();
+                    this.direction.turnLeft();
                     break;
                 case 'R':
-                    this.turnRight();
+                    this.direction.turnRight();
                     break;
             }
         }
@@ -37,37 +35,24 @@ public class MarsRover {
     }
 
     private void move() {
-        switch (this.directionIndex) {
-            case 0:
+        switch (this.direction.getDirection()) {
+            case "N":
                 this.yLocation++;
                 break;
-            case 1:
+            case "E":
                 this.xLocation++;
                 break;
-            case 2:
+            case "S":
                 this.yLocation--;
                 break;
-            case 3:
+            case "W":
                 this.xLocation--;
                 break;
         }
     }
 
-    private void turnLeft() {
-        this.directionIndex = this.directionIndex - 1 >= 0 ? this.directionIndex - 1 : 3;
-    }
-
-    private void turnRight() {
-        this.directionIndex = this.directionIndex + 1 <= 3 ? this.directionIndex + 1 : 0;
-    }
-
-
-    public String getLocation() {
-        return String.format(locationFormat, this.xLocation, this.yLocation, this.getDirection());
-    }
-
     public String getDirection() {
-        return directionList.get(this.directionIndex);
+        return this.direction.getDirection();
     }
 
     public int getxLocation() {
