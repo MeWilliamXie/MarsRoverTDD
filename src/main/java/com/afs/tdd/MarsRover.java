@@ -13,22 +13,25 @@ public class MarsRover {
     public void executeCommand(String command) {
         char[] commandList = command.toCharArray();
         for (char theCommand : commandList) {
-            switch (theCommand) {
-                case CommandImpl.COMMAND_MOVE:
-                    this.location.move(this.direction);
-                    break;
-                case CommandImpl.COMMAND_LEFT:
-                    this.direction.turnLeft();
-                    break;
-                case CommandImpl.COMMAND_RIGHT:
-                    this.direction.turnRight();
-                    break;
-                case CommandImpl.COMMAND_BACK:
-                    this.direction.turnBack();
-                    break;
-            }
+            ManageOneCommand(theCommand);
         }
+    }
 
+    private void ManageOneCommand(char theCommand){
+        switch (theCommand) {
+            case CommandImpl.COMMAND_MOVE:
+                this.location.move(this.direction);
+                break;
+            case CommandImpl.COMMAND_LEFT:
+                this.direction.turnLeft();
+                break;
+            case CommandImpl.COMMAND_RIGHT:
+                this.direction.turnRight();
+                break;
+            case CommandImpl.COMMAND_BACK:
+                this.direction.turnBack();
+                break;
+        }
     }
 
     public String getDirection() {
