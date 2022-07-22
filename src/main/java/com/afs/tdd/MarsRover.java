@@ -1,13 +1,7 @@
 package com.afs.tdd;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class MarsRover {
 
-    //    private int xLocation;
-//    private int yLocation;
     private final Location location;
     private final Direction direction;
 
