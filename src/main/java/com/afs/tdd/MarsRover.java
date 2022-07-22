@@ -14,16 +14,16 @@ public class MarsRover {
         char[] commandList = command.toCharArray();
         for (char theCommand : commandList) {
             switch (theCommand) {
-                case 'M':
+                case CommandImpl.COMMAND_MOVE:
                     this.location.move(this.direction);
                     break;
-                case 'L':
+                case CommandImpl.COMMAND_LEFT:
                     this.direction.turnLeft();
                     break;
-                case 'R':
+                case CommandImpl.COMMAND_RIGHT:
                     this.direction.turnRight();
                     break;
-                case 'B':
+                case CommandImpl.COMMAND_BACK:
                     this.direction.turnBack();
                     break;
             }
