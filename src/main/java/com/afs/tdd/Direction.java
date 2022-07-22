@@ -4,7 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Direction {
-    private static final List<String> directionList = Arrays.asList("N", "E", "S", "W");
+    private static final List<String> directionList = Arrays.asList(
+            DirectionImpl.DIRECTION_NORTH,
+            DirectionImpl.DIRECTION_EAST,
+            DirectionImpl.DIRECTION_SOUTH,
+            DirectionImpl.DIRECTION_WEST
+    );
+
     private int directionIndex;
 
     Direction(String direction) {
@@ -16,11 +22,15 @@ public class Direction {
     }
 
     public void turnLeft() {
-        this.directionIndex = this.directionIndex - 1 >= 0 ? this.directionIndex - 1 : 3;
+        this.directionIndex = (this.directionIndex + 3) % 4;
     }
 
     public void turnRight() {
-        this.directionIndex = this.directionIndex + 1 <= 3 ? this.directionIndex + 1 : 0;
+        this.directionIndex = (this.directionIndex + 1) % 4;
+    }
+
+    public void turnBack(){
+        this.directionIndex = (this.directionIndex + 2) % 4;
     }
 
 }

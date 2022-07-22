@@ -23,6 +23,9 @@ public class MarsRover {
                 case 'R':
                     this.direction.turnRight();
                     break;
+                case 'B':
+                    this.direction.turnBack();
+                    break;
             }
         }
 

@@ -19,16 +19,16 @@ public class Location {
     public void move(Direction direction){
 
         switch (direction.getDisplay()) {
-            case "N":
+            case DirectionImpl.DIRECTION_NORTH:
                 this.yLocation++;
                 break;
-            case "E":
+            case DirectionImpl.DIRECTION_EAST:
                 this.xLocation++;
                 break;
-            case "S":
+            case DirectionImpl.DIRECTION_SOUTH:
                 this.yLocation--;
                 break;
-            case "W":
+            case DirectionImpl.DIRECTION_WEST:
                 this.xLocation--;
                 break;
         }

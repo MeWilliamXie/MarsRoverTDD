@@ -174,7 +174,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_get_to_negative3_2_W_when_execute_command_MMR_given_0_0_W() {
+    void should_get_to_negative3_2_W_when_execute_command_MMMRMML_given_0_0_W() {
         // given
         MarsRover marsRover = new MarsRover(0, 0, "W");
 
@@ -185,5 +185,19 @@ class MarsRoverTest {
         assertEquals(-3, marsRover.getXLocation());
         assertEquals(2, marsRover.getYLocation());
         assertEquals("W", marsRover.getDirection());
+    }
+
+    @Test
+    void should_get_to_negative3_2_W_when_execute_command_MMMRMMLB_given_0_0_W() {
+        // given
+        MarsRover marsRover = new MarsRover(0, 0, "W");
+
+        // when
+        marsRover.executeCommand("MMMRMMLB");
+
+        // then
+        assertEquals(-3, marsRover.getXLocation());
+        assertEquals(2, marsRover.getYLocation());
+        assertEquals("E", marsRover.getDirection());
     }
 }
